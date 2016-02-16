@@ -30,7 +30,7 @@ class HomeController extends Controller
         return $this->render('SiteBundle:Beer:duiker.html.twig');
     }
     /**
-     * @Route("/excusemewhileikissmystout", name="site_excuse")
+     * @Route("/excusemewhileikissmystout", name="site_beer_excuse")
      */
     public function stoutAction()
     {

@@ -1,0 +1,10 @@
+@font-face {
+
+  font-family:Potsdam;
+    src: url('../fonts/potsdam-webfont.eot');
+    src: url('../fonts/potsdam-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/potsdam-webfont.woff') format('woff'),
+    url('../fonts/potsdam-webfont.ttf') format('truetype'),
+    url('../fonts/potsdam-webfont.svg#potsdam-webfont') format('svg');
+
+    }
