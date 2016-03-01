@@ -10,4 +10,18 @@ namespace SiteBundle\Repository;
  */
 class ArticleRepository extends \Doctrine\ORM\EntityRepository
 {
+	public function home()
+	{
+	  $qb = $this->createQueryBuilder('a');
+
+	  $qb
+	     ->orderBy('a.date', 'DESC')
+	     ->setMaxResults(5)
+	  	;
+
+	  return $qb
+	    ->getQuery()
+	    ->getResult()
+	  ;
+	}
 }

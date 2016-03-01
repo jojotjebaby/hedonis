@@ -13,7 +13,11 @@ class HomeController extends Controller
     public function indexAction()
     {
     	//get the last 5 articles.
-        return $this->render('SiteBundle:Home:index.html.twig');
+        $listArticles = $this->getDoctrine()->getRepository('SiteBundle:Article')->home();
+        
+        return $this->render('SiteBundle:Home:index.html.twig',array(
+        'listArticles' => $listArticles,
+        ));
     }
     /**
      * @Route("/about", name="site_about")
@@ -27,7 +31,7 @@ class HomeController extends Controller
      */
     public function oldDuikerAction()
     {
-        return $this->render('SiteBundle:Beer:duiker.html.twig');
+        return $this->render('SiteBundle:Beer:ouweduiker.html.twig');
     }
     /**
      * @Route("/excusemewhileikissmystout", name="site_beer_excuse")
@@ -41,14 +45,49 @@ class HomeController extends Controller
      */
     public function newsAction()
     {
-        return $this->render('SiteBundle:Home:news.html.twig');
+        $listArticles = $this->getDoctrine()->getRepository('SiteBundle:Article')->findall();
+
+        $numberarticles = count($listArticles);
+
+        $leftArticles = array();
+        $rightArticles = array();
+
+        //making 2 lists, one for right and one for left.
+        for($i=0;$i < $numberarticles; $i++){
+            if($i % 2 == 0 ){
+                //the number is odd
+                array_push($leftArticles, $listArticles[$i]);
+            }
+            else{
+                array_push($rightArticles, $listArticles[$i]);
+            }
+        }
+
+        return $this->render('SiteBundle:Home:news.html.twig',array(
+            'leftArticles' => $leftArticles,
+            'rightArticles' => $rightArticles,
+        ));
     }
     /**
      * @Route("/verkoop", name="site_sales")
      */
     public function salesAction()
     {
-        return $this->render('SiteBundle:Home:sales.html.twig');
+        
+
+        //making a list for every state.
+        $west = $this->getDoctrine()->getRepository('SiteBundle:Sales')->west();
+        $oost = $this->getDoctrine()->getRepository('SiteBundle:Sales')->oost();
+        $antwerpen = $this->getDoctrine()->getRepository('SiteBundle:Sales') ->antwerpen();
+        $limburg = $this->getDoctrine()->getRepository('SiteBundle:Sales') ->limburg();
+        $vlaams = $this->getDoctrine()->getRepository('SiteBundle:Sales') ->vlaams();
+
+        $listSales = array('west'=> $west, 'oost' => $oost, 'antwerpen' => $antwerpen, 'limburg' => $limburg, 'vlaams' => $vlaams);
+
+
+        return $this->render('SiteBundle:Home:sales.html.twig',array(
+            'listSales' => $listSales,
+        ));
     }
     /**
      * @Route("/contact", name="site_contact")

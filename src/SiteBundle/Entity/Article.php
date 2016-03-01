@@ -12,6 +12,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Article
 {
+
+    /**
+    * @ORM\OneToOne(targetEntity="SiteBundle\Entity\Picture", cascade={"persist"})
+    */
+    private $picture;
+
     /**
      * @var int
      *
@@ -155,5 +161,28 @@ class Article
     {
         return $this->hyperlink;
     }
-}
 
+    /**
+     * Set picture
+     *
+     * @param \SiteBundle\Entity\Picture $picture
+     *
+     * @return Article
+     */
+    public function setPicture(\SiteBundle\Entity\Picture $picture = null)
+    {
+        $this->picture = $picture;
+
+        return $this;
+    }
+
+    /**
+     * Get picture
+     *
+     * @return \SiteBundle\Entity\Picture
+     */
+    public function getPicture()
+    {
+        return $this->picture;
+    }
+}

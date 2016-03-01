@@ -38,13 +38,6 @@ class Sales
     /**
      * @var string
      *
-     * @ORM\Column(name="number", type="string", length=255)
-     */
-    private $number;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="tel", type="string", length=255)
      */
     private $tel;
@@ -141,30 +134,6 @@ class Sales
     public function getAdresse()
     {
         return $this->adresse;
-    }
-
-    /**
-     * Set number
-     *
-     * @param string $number
-     *
-     * @return Sales
-     */
-    public function setNumber($number)
-    {
-        $this->number = $number;
-
-        return $this;
-    }
-
-    /**
-     * Get number
-     *
-     * @return string
-     */
-    public function getNumber()
-    {
-        return $this->number;
     }
 
     /**

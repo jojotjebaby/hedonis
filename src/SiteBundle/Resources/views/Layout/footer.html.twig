@@ -20,34 +20,32 @@
 		</div>
 		<div class="col-md-4">
 			<h3 style="font-family:'Potsdam'; color:#E0E0E0 ">Aboneer je op onze Newsletter !</h3>
+			<!--Render the subscriber form -->
+
 			<form class="newsletter" method="post" action="index.php">
 				<div class="form-group">
 					<input type="text" class="form-control" id="name" name="name" placeholder="Naam">
-					<?php echo "<p class='text-danger'>$errName</p>";?>
 				</div>
 				<div class="form-group">
 					<input type="email" class="form-control" id="mail" name="mail" placeholder="Email">
-					<?php echo "<p class='text-danger'>$errEmail</p>";?>
 				</div>
 				<div class="form-group" style="text-align:center;">
-					<input id="submit" name="submit" type="submit" value="Aboneren" class="btn btn-flat-warning">
+					<input id="submit_sub" name="submit" type="submit" value="Aboneren" class="btn btn-flat-warning">
 				</div>
 			</form>
+
+
+
 			</br>
 			</br>
 		</div>
-	  
-	  
-        
-		
-		
       </div>
 	  <div class="footer-below text-center" style="padding: 10px 0; background-color: #1A1917;">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        Copyright &copy; <a href="http://ezwebcreation.fr/" target="_blank"> EzWebCreation.fr</a> 2015 </br>
-						<a href="admin/admin.php"> admin section</a>
+                        Copyright &copy; EzWebCreation.fr 2015 </br>
+						<a href="{{ path('admin_index')}}"> admin section</a>
                     </div>
                 </div>
             </div>

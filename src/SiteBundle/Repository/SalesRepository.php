@@ -10,4 +10,74 @@ namespace SiteBundle\Repository;
  */
 class SalesRepository extends \Doctrine\ORM\EntityRepository
 {
+	public function west()
+	{
+	  $qb = $this->createQueryBuilder('s');
+
+	  $qb->where('s.state = :state')
+	       ->setParameter('state', 'west-vlaanderen')
+	     ->orderBy('s.id', 'DESC')
+	  	;
+
+	  return $qb
+	    ->getQuery()
+	    ->getResult()
+	  ;
+	}
+	public function oost()
+	{
+	  $qb = $this->createQueryBuilder('s');
+
+	  $qb->where('s.state = :state')
+	       ->setParameter('state', 'oost-vlaanderen')
+	     ->orderBy('s.id', 'DESC')
+	  	;
+
+	  return $qb
+	    ->getQuery()
+	    ->getResult()
+	  ;
+	}
+	public function antwerpen()
+	{
+	  $qb = $this->createQueryBuilder('s');
+
+	  $qb->where('s.state = :state')
+	       ->setParameter('state', 'antwerpen')
+	     ->orderBy('s.id', 'DESC')
+	  	;
+
+	  return $qb
+	    ->getQuery()
+	    ->getResult()
+	  ;
+	}
+	public function limburg()
+	{
+	  $qb = $this->createQueryBuilder('s');
+
+	  $qb->where('s.state = :state')
+	       ->setParameter('state', 'limburg')
+	     ->orderBy('s.id', 'DESC')
+	  	;
+
+	  return $qb
+	    ->getQuery()
+	    ->getResult()
+	  ;
+	}
+	public function vlaams()
+	{
+	  $qb = $this->createQueryBuilder('s');
+
+	  $qb->where('s.state = :state')
+	       ->setParameter('state', 'vlaams-brabant')
+	     ->orderBy('s.id', 'DESC')
+	  	;
+
+	  return $qb
+	    ->getQuery()
+	    ->getResult()
+	  ;
+	}
 }
