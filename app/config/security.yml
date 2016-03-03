@@ -17,10 +17,10 @@ security:
             memory:
                 users:
                     leo:
-                        password: $2y$12$Q7VKhq8k/9S3Hdu4qLX5pesS1UsZcmykXI7AzVCWUlXyJ5gBOIvFm
+                        password: "%password_leo%"
                         roles: 'ROLE_ADMIN'
                     joris: 
-                       password: $2y$12$Fh5E0XQRwkSg/OhmAjW1TuMiHO637lTdrf7QwwDO4V6UwhbEIqM96
+                       password: "%password_joris%"
                        roles: 'ROLE_ADMIN'
 
     firewalls:
