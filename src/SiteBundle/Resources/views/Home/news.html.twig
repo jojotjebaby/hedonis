@@ -35,7 +35,13 @@
                     <div class="jumbotron" style="margin-right:5px;">
                       <h3>{{ article.title }}</h3>
                       <p>{{ article.date|date("d/m/Y") }}</p>
-                        
+                      {% if article.picture is not null %}
+                        <img src="/uploads/img/{{ article.picture.id }}.{{ article.picture.src }}" alt="" style="max-width:90%; max-height:250px;">
+                      {% endif %}
+                      <p>{{ article.content }}</p>
+                      {% if article.hyperlink is not null %}
+                        <a href="{{ article.hyperlink }}" target="_blank">More info...</a>
+                      {% endif %}
                     </div>
                   {% endfor %}
                 </div>
@@ -45,8 +51,15 @@
                 <div class="row">
                   {% for article in rightArticles %}
                     <div class="jumbotron" style="margin-left:5px;">
-                        <h3>{{ article.title }}</h3>
+                      <h3>{{ article.title }}</h3>
                       <p>{{ article.date|date("d/m/Y") }}</p>
+                      {% if article.picture is not null %}
+                        <img src="/uploads/img/{{ article.picture.id }}.{{ article.picture.src }}" alt="" style="max-width:90%; max-height:250px;">
+                      {% endif %}
+                      <p>{{ article.content }}</p>
+                      {% if article.hyperlink is not null %}
+                        <a href="{{ article.hyperlink }}" target="_blank">More info...</a>
+                      {% endif %}
                     </div>
                   {% endfor %}
                 </div>

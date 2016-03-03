@@ -4,7 +4,9 @@ security:
 
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     encoders:
-        Symfony\Component\Security\Core\User\User: plaintext
+        Symfony\Component\Security\Core\User\User:
+            algorithm: bcrypt
+            cost: 12
 
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER
@@ -14,8 +16,12 @@ security:
         in_memory:
             memory:
                 users:
-                    user: { password: password, roles: [ 'ROLE_USER' ] }
-                    admin: { password: password, roles: [ 'ROLE_ADMIN' ] }
+                    leo:
+                        password: $2y$12$Q7VKhq8k/9S3Hdu4qLX5pesS1UsZcmykXI7AzVCWUlXyJ5gBOIvFm
+                        roles: 'ROLE_ADMIN'
+                    joris: 
+                       password: $2y$12$Fh5E0XQRwkSg/OhmAjW1TuMiHO637lTdrf7QwwDO4V6UwhbEIqM96
+                       roles: 'ROLE_ADMIN'
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -27,15 +33,7 @@ security:
             pattern:   ^/
             anonymous: true
             provider:  in_memory
-            form_login:
-                login_path: login
-                check_path: login_check
-            logout:
-                path:   logout
-                target: /
-            # activate different ways to authenticate
-
-            # http_basic: ~
+            http_basic: ~
             # http://symfony.com/doc/current/book/security.html#a-configuring-how-your-users-will-authenticate
 
             # form_login: ~

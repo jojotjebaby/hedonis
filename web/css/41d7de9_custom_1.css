@@ -96,6 +96,33 @@ border-radius:10px;
 .navbar {max-height:100% !important}
 .navbar-brand{float:left;max-height:100%;padding:5px 15px;font-size:18px;line-height:20px}
 
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
 
+/* Sales pagina layout */
 
-
+#map {
+  width: 100%;
+  height: 400px;
+}
+.boxinactive{
+  margin: 10px;
+  height: 200px;
+  border-radius: 25px;
+  background-color:#A0A0A0;
+}
+.boxactive{
+  margin: 10px;
+  height: 200px;
+  border-radius: 25px;
+  background-color:#303030;
+}
+.contentbox{
+  padding-top: 10px;
+  margin: 10px;
+  height: 100%;
+  color:white;
+}
